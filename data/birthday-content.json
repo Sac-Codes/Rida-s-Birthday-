@@ -1,0 +1,200 @@
+{
+  "bestieName": "Rida",
+  "senderName": "Your Bestie",
+  "birthdayDate": "2026-10-18T00:00:00",
+  "isBirthdayToday": true,
+  "todayCelebrationMessage": "IT'S YOUR SPECIAL DAY! 🎂🎉",
+  "audioEnabledByDefault": false,
+
+  "firstScreen": {
+    "badge": "A LITTLE SOMETHING FOR YOU 💌",
+    "title": "Hey, Bestie Rida! 🎀",
+    "subtitle": "Someone made a little corner of the internet just for you…",
+    "buttonText": "Open Your Surprise 💌",
+    "footerNote": "Made with love, hugs & a little bit of magic ✨"
+  },
+
+  "scene1_welcome": {
+    "heading": "Happy Birthday, {name}! 🎂💗",
+    "subtitle": "Today is all about celebrating the wonderful person you are. So, here is a tiny surprise made especially for you!",
+    "cakePrompt": "Make a wish & click to blow the candles! 🕯️✨",
+    "buttonText": "There's More! ✨"
+  },
+
+  "scene2_letter": {
+    "sectionBadge": "A HEARTFELT NOTE 💌",
+    "title": "A Little Birthday Letter",
+    "teaser": "Psst… someone has written you a little letter. 💗",
+    "clickPrompt": "Tap envelope to open 💌",
+    "dear": "Dear {name},",
+    "paragraphs": [
+      "Happy Birthday to someone who makes life a little brighter just by being themselves! 💗",
+      "I hope this new chapter brings you beautiful memories, wonderful surprises, lots of laughter, and countless reasons to smile.",
+      "Never forget how special you are and how much you deserve happiness, love, and success.",
+      "Keep being your lovely, wonderful self. The world needs more of your magic. ✨"
+    ],
+    "signoff": "With lots of hugs and bestie energy,",
+    "signature": "{senderName} 💌"
+  },
+
+  "scene3_teddyCorner": {
+    "sectionBadge": "COZY NOOK 🧸📚",
+    "title": "The Cute Teddy-Bear Corner",
+    "subtitle": "A cozy reading haven made with hugs and warm pastel vibes",
+    "captions": [
+      "A bear-y special person! 🧸",
+      "Sending you a shelf full of happiness! 📚",
+      "You deserve all the hugs today! 💗"
+    ],
+    "books": [
+      {
+        "title": "Dream Big",
+        "tag": "Vol. 1",
+        "color": "#BCE3FA",
+        "spineColor": "#8EC5FC",
+        "quote": "Your dreams are valid, bold, and beautiful. Never stop reaching for the stars! ⭐"
+      },
+      {
+        "title": "Happy Tales",
+        "tag": "Vol. 2",
+        "color": "#FFD1DC",
+        "spineColor": "#FFAAA6",
+        "quote": "May every chapter of your life be filled with laughter, cute moments, and sunshine! 🌸"
+      },
+      {
+        "title": "Love & Joy",
+        "tag": "Vol. 3",
+        "color": "#C7EAE5",
+        "spineColor": "#80CBC4",
+        "quote": "You radiate warmth wherever you go. Being around you is an absolute blessing! 💗"
+      },
+      {
+        "title": "Little Adventures",
+        "tag": "Vol. 4",
+        "color": "#E5D4F9",
+        "spineColor": "#CE93D8",
+        "quote": "To every road trip, late-night laugh attack, and silly memory yet to come! 🚀"
+      }
+    ]
+  },
+
+  "scene4_reasons": {
+    "sectionBadge": "WHY YOU ARE SO SPECIAL 🌷",
+    "title": "Reasons You're Amazing",
+    "subtitle": "Just a small reminder of all the light you bring into the world",
+    "cards": [
+      {
+        "id": "card-1",
+        "icon": "🌞",
+        "headline": "Sunshine Smile",
+        "text": "Your smile makes ordinary days brighter.",
+        "tag": "Instant warmth ✨"
+      },
+      {
+        "id": "card-2",
+        "icon": "🌸",
+        "headline": "Pure Heart",
+        "text": "You deserve every beautiful thing life has to offer.",
+        "tag": "Always & forever 💖"
+      },
+      {
+        "id": "card-3",
+        "icon": "📸",
+        "headline": "Unforgettable",
+        "text": "You make memories worth keeping.",
+        "tag": "Golden moments 🧸"
+      },
+      {
+        "id": "card-4",
+        "icon": "💗",
+        "headline": "Endless Kindness",
+        "text": "Your kindness is a gift.",
+        "tag": "So genuine 🌷"
+      },
+      {
+        "id": "card-5",
+        "icon": "⭐",
+        "headline": "Limitless Dreams",
+        "text": "Keep dreaming ridiculously big.",
+        "tag": "Shoot for stars 🚀"
+      },
+      {
+        "id": "card-6",
+        "icon": "🎀",
+        "headline": "Simply You",
+        "text": "Never stop being wonderfully you.",
+        "tag": "One in a billion 👑"
+      }
+    ]
+  },
+
+  "scene5_scrapbook": {
+    "sectionBadge": "TREASURED MEMORIES 📸",
+    "title": "The Memory Scrapbook",
+    "subtitle": "Sweet polaroids, golden memories, and unforgettable smiles of our favorite girl",
+    "polaroids": [
+      {
+        "id": "photo-1",
+        "image": "assets/images/rida_2.jpg",
+        "alt": "Rida and bestie smiling together in a cute selfie",
+        "title": "Bestie Smiles Forever 📸💖",
+        "caption": "Unstoppable laughs, endless inside jokes, and the kind of friendship that brightens every single day!",
+        "date": "Unbreakable Bond",
+        "sticker": "🌸 BESTIES"
+      },
+      {
+        "id": "photo-2",
+        "image": "assets/images/rida_1.jpg",
+        "alt": "Rida receiving a certificate and trophy award with pride",
+        "title": "The Champion Girl 🏆⭐",
+        "caption": "Winning trophies, holding certificates, and shining so bright! Celebrating your big wins and endless talents.",
+        "date": "Proud Achievement",
+        "sticker": "🎖️ PROUD OF YOU"
+      },
+      {
+        "id": "photo-3",
+        "image": "assets/images/rida_3.jpg",
+        "alt": "Rida and friends smiling at school event with peace sign",
+        "title": "School Days & Silly Faces 🏫🌸",
+        "caption": "Uniforms, peace signs, exhibition days, and memories that will stay in our hearts forever!",
+        "date": "School Times",
+        "sticker": "✌️ CREW VIBES"
+      },
+      {
+        "id": "photo-4",
+        "image": "assets/images/rida_4.jpg",
+        "alt": "Baby Rida childhood throwback with her father",
+        "title": "Little Princess Throwback 🍼✨",
+        "caption": "A sweet baby girl with the biggest sparkle in her eyes. Look how wonderfully you've grown!",
+        "date": "Little Rida",
+        "sticker": "🧸 THROWBACK"
+      }
+    ]
+  },
+
+  "scene6_gift": {
+    "sectionBadge": "A SPECIAL SURPRISE 🎁",
+    "title": "Birthday Wishes",
+    "teaser": "There's one more little surprise waiting for you… 🎁",
+    "prompt": "Click the shiny gift box to unwrap it! 🎀",
+    "wishHeading": "A Wish Straight From The Heart 💗",
+    "wishBody": "May this year bring you unexpected happiness, exciting adventures, dreams that come true, and memories that make you smile for years. Happy Birthday! 🎂💗",
+    "replayButton": "Open Gift Again 🎁"
+  },
+
+  "scene7_countdown": {
+    "sectionBadge": "SPECIAL DAY ⏳",
+    "title": "Birthday Countdown",
+    "isToday": true,
+    "todayCelebration": "IT'S YOUR SPECIAL DAY! 🎂🎉",
+    "todaySubtext": "The universe is celebrating the wonderful soul that you are today! 🌟"
+  },
+
+  "scene8_final": {
+    "sectionBadge": "WITH ALL MY LOVE 🌙",
+    "title": "A Little Corner Of Magic ✨",
+    "message": "And that's your little corner of birthday magic. Keep smiling, keep dreaming, and keep being the amazing person you are. Happy Birthday once again! 💗🧸✨",
+    "buttonLetter": "Read the Letter Again 💌",
+    "buttonRestart": "Start the Surprise Over 🎀"
+  }
+}

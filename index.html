@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Bestie! 🎀🧸 A Special Gift For You</title>
+  <meta name="description" content="A cute, interactive, personalized birthday surprise website filled with pastel teddy bears, books, letters, memories, and magic.">
+  
+  <!-- Google Fonts: Playfair Display (Serif), Quicksand (Rounded Body), Caveat & Marck Script (Handwritten) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Marck+Script&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
+</head>
+<body>
+  <!-- Fairy Lights Garland across the top -->
+  <div class="fairy-lights-garland" aria-hidden="true">
+    <div class="wire"></div>
+    <span class="bulb bulb-pink"></span>
+    <span class="bulb bulb-gold"></span>
+    <span class="bulb bulb-lavender"></span>
+    <span class="bulb bulb-rose"></span>
+    <span class="bulb bulb-cream"></span>
+    <span class="bulb bulb-pink"></span>
+    <span class="bulb bulb-gold"></span>
+    <span class="bulb bulb-lavender"></span>
+    <span class="bulb bulb-rose"></span>
+    <span class="bulb bulb-cream"></span>
+    <span class="bulb bulb-pink"></span>
+    <span class="bulb bulb-gold"></span>
+  </div>
+
+  <!-- Canvas for celebration confetti -->
+  <canvas id="confettiCanvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Canvas for magic sparkle cursor trail -->
+  <div id="sparkleTrailContainer" class="sparkle-trail-container" aria-hidden="true"></div>
+
+  <!-- Floating Audio & Accessibility Controls -->
+  <header class="top-nav" aria-label="Controls Navigation">
+    <div class="nav-branding">
+      <span class="nav-bow" aria-hidden="true">🎀</span>
+      <span class="nav-title">Bestie's Birthday Corner</span>
+    </div>
+    <div class="nav-controls">
+      <button id="toggleMusicBtn" class="pill-btn sound-pill" aria-label="Toggle relaxing music" title="Toggle gentle background music">
+        <span class="btn-icon" id="musicIcon" aria-hidden="true">🎵</span>
+        <span class="btn-text" id="musicLabel">Music: Off</span>
+      </button>
+      <button id="toggleSfxBtn" class="pill-btn sound-pill" aria-label="Toggle sound effects" title="Toggle sound effects">
+        <span class="btn-icon" id="sfxIcon" aria-hidden="true">🔔</span>
+        <span class="btn-text" id="sfxLabel">SFX: On</span>
+      </button>
+      <button id="easterEggBtn" class="secret-heart-btn" aria-label="A secret surprise" title="Psst... click for a secret wish!">
+        <span class="heart-pulse" aria-hidden="true">💖</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- SCREEN 1: THE FIRST SCREEN (OPENING HERO)  -->
+  <!-- ========================================== -->
+  <section id="firstScreen" class="first-screen-hero" aria-label="Opening Surprise Screen">
+    <!-- Ambient floating background decorations -->
+    <div class="floating-ambient-decorations" aria-hidden="true">
+      <div class="float-item float-item-1">💗</div>
+      <div class="float-item float-item-2">✨</div>
+      <div class="float-item float-item-3">🎀</div>
+      <div class="float-item float-item-4">⭐</div>
+      <div class="float-item float-item-5">🌸</div>
+      <div class="float-item float-item-6">🧸</div>
+      <div class="float-item float-item-7">📚</div>
+      <div class="float-item float-item-8">☁️</div>
+      <div class="float-item float-item-9">💗</div>
+      <div class="float-item float-item-10">✨</div>
+    </div>
+
+    <div class="hero-container">
+      <!-- TOP AREA -->
+      <div class="hero-top-area">
+        <div class="badge-pill">
+          <span class="badge-icon" aria-hidden="true">💌</span>
+          <span id="heroBadgeText">A LITTLE SOMETHING FOR YOU 💌</span>
+          <span class="sparkle-spark" aria-hidden="true">✨</span>
+        </div>
+      </div>
+
+      <!-- CENTER AREA -->
+      <div class="hero-center-area">
+        <h1 class="hero-greeting" id="heroTitle">
+          Hey, Bestie! <span class="sparkle-ribbon" aria-hidden="true">🎀</span>
+        </h1>
+        <p class="hero-subtitle" id="heroSubtitle">
+          Someone made a little corner of the internet just for you…
+        </p>
+
+        <!-- Illustration: Fluffy Teddy Bear sitting beside stack of pastel books -->
+        <div class="hero-art-showcase" id="heroArtShowcase">
+          <div class="art-glow-backdrop" aria-hidden="true"></div>
+          <div class="hero-image-wrapper">
+            <div class="hero-washi-tape-top" aria-hidden="true">
+              <span>🌸 BESTIE 💖 FOREVER 🌸</span>
+            </div>
+            <img 
+              id="heroTeddyImg" 
+              src="assets/images/hero_teddy_bear.jpg" 
+              alt="Adorable pastel pink teddy bear sitting beside a colorful stack of pastel books with hearts and sparkles"
+              class="hero-illustration-img"
+              width="460"
+              height="460"
+            />
+            <div class="art-badge-note" aria-hidden="true">
+              <span>🧸 For Bestie 💗</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prominent Call to Action Button -->
+        <div class="hero-action-wrapper">
+          <button id="openSurpriseBtn" class="primary-magic-btn" aria-label="Open Your Birthday Surprise">
+            <span class="btn-sparkle-left" aria-hidden="true">✨</span>
+            <span class="btn-main-text" id="openBtnText">Open Your Surprise 💌</span>
+            <span class="btn-sparkle-right" aria-hidden="true">💖</span>
+            <div class="btn-shimmer" aria-hidden="true"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- BOTTOM AREA -->
+      <div class="hero-bottom-area">
+        <p class="hero-footer-caption" id="heroFooterCaption">
+          Made with love, hugs & a little bit of magic ✨
+        </p>
+        <div class="hero-footer-decorations" aria-hidden="true">
+          <span>🌸</span>
+          <span class="dot-separator">•</span>
+          <span>🧸</span>
+          <span class="dot-separator">•</span>
+          <span>📚</span>
+          <span class="dot-separator">•</span>
+          <span>💗</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- MAIN EXPERIENCE CONTAINER (UNFOLDS ON CLICK) -->
+  <!-- ========================================== -->
+  <main id="mainExperience" class="main-experience hidden" aria-label="Birthday Surprise Journey">
+    
+    <!-- CHAPTER NAVIGATION BAR -->
+    <nav class="scenes-nav-bar" aria-label="Surprise Chapters">
+      <ul class="scenes-nav-list">
+        <li><a href="#welcomeScene" class="scene-nav-link active" data-target="welcomeScene">🎂 Welcome</a></li>
+        <li><a href="#letterScene" class="scene-nav-link" data-target="letterScene">💌 Letter</a></li>
+        <li><a href="#teddyScene" class="scene-nav-link" data-target="teddyScene">🧸 Teddy Nook</a></li>
+        <li><a href="#reasonsScene" class="scene-nav-link" data-target="reasonsScene">🌷 Why You're Amazing</a></li>
+        <li><a href="#scrapbookScene" class="scene-nav-link" data-target="scrapbookScene">📸 Scrapbook</a></li>
+        <li><a href="#giftScene" class="scene-nav-link" data-target="giftScene">🎁 Gift Box</a></li>
+        <li><a href="#finalScene" class="scene-nav-link" data-target="finalScene">🌙 Hugs & Magic</a></li>
+      </ul>
+    </nav>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 1: THE BIRTHDAY WELCOME 🎂        -->
+    <!-- ---------------------------------------- -->
+    <section id="welcomeScene" class="experience-section welcome-section" aria-labelledby="welcomeHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span>🎂 CELEBRATION TIME 🎂</span>
+        </div>
+        <h2 id="welcomeHeading" class="section-title">
+          Happy Birthday, <span class="highlight-name" id="welcomeBestieName">Bestie</span>! 🎂💗
+        </h2>
+        <p class="section-intro" id="welcomeSubtitle">
+          Today is all about celebrating the wonderful person you are. So, here is a tiny surprise made especially for you!
+        </p>
+
+        <!-- Interactive Birthday Cake -->
+        <div class="interactive-cake-box" id="interactiveCakeBox">
+          <div class="cake-status-badge" id="cakeStatusBadge">
+            <span class="sparkle-icon" aria-hidden="true">✨</span>
+            <span id="cakeInstructionText">Make a wish & tap the candles to blow them out! 🕯️</span>
+          </div>
+
+          <div class="cake-illustration-container" id="cakeContainer" role="button" tabindex="0" aria-label="Birthday Cake. Click to blow out candles and make a wish">
+            <!-- SVG Crafted High-End Birthday Cake with lit flickering candles -->
+            <svg class="cake-svg" viewBox="0 0 320 280" aria-hidden="true">
+              <!-- Cake Stand Plate -->
+              <ellipse cx="160" cy="250" rx="130" ry="20" fill="#E8D5C8" stroke="#D7BAA5" stroke-width="2"/>
+              <path d="M120 250 Q160 270 200 250 L185 275 Q160 280 135 275 Z" fill="#D7BAA5"/>
+              
+              <!-- Bottom Cake Tier -->
+              <path d="M50 185 C50 165, 270 165, 270 185 L270 235 C270 255, 50 255, 50 235 Z" fill="#FFC5DA"/>
+              <ellipse cx="160" cy="185" rx="110" ry="24" fill="#FFD9E8"/>
+              <!-- Bottom Frosting Scallops -->
+              <path d="M50 190 Q65 205 80 190 Q95 205 110 190 Q125 205 140 190 Q155 205 170 190 Q185 205 200 190 Q215 205 230 190 Q245 205 260 190" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+              <ellipse cx="160" cy="235" rx="110" ry="15" fill="#FFAEC9" opacity="0.4"/>
+              
+              <!-- Top Cake Tier -->
+              <path d="M85 125 C85 110, 235 110, 235 125 L235 175 C235 190, 85 190, 85 175 Z" fill="#FFF0F5"/>
+              <ellipse cx="160" cy="125" rx="75" ry="18" fill="#FFFFFF"/>
+              <!-- Top tier dripping frosting -->
+              <path d="M85 130 C95 145 105 130 115 148 C125 130 135 145 145 132 C155 150 165 130 175 148 C185 130 195 145 205 133 C215 148 225 130 235 130" fill="none" stroke="#FFB6D1" stroke-width="5" stroke-linecap="round"/>
+              
+              <!-- Strawberries and decorations on cake -->
+              <circle cx="110" cy="124" r="7" fill="#FF5277"/>
+              <circle cx="160" cy="128" r="8" fill="#FF5277"/>
+              <circle cx="210" cy="124" r="7" fill="#FF5277"/>
+              
+              <!-- Sprinkles -->
+              <line x1="120" y1="160" x2="128" y2="158" stroke="#FF70A6" stroke-width="3" stroke-linecap="round"/>
+              <line x1="190" y1="162" x2="198" y2="166" stroke="#FFD166" stroke-width="3" stroke-linecap="round"/>
+              <line x1="155" y1="165" x2="163" y2="160" stroke="#06D6A0" stroke-width="3" stroke-linecap="round"/>
+              <line x1="95" y1="210" x2="105" y2="212" stroke="#118AB2" stroke-width="3" stroke-linecap="round"/>
+              <line x1="220" y1="210" x2="230" y2="208" stroke="#FFD166" stroke-width="3" stroke-linecap="round"/>
+              <line x1="160" y1="215" x2="170" y2="218" stroke="#FF70A6" stroke-width="3" stroke-linecap="round"/>
+
+              <!-- Candles -->
+              <!-- Candle 1 -->
+              <rect x="115" y="80" width="8" height="42" rx="4" fill="#A0C4FF" class="candle-stick"/>
+              <!-- Candle 2 (Center) -->
+              <rect x="156" y="70" width="8" height="52" rx="4" fill="#FFC6FF" class="candle-stick"/>
+              <!-- Candle 3 -->
+              <rect x="197" y="80" width="8" height="42" rx="4" fill="#FDFFB6" class="candle-stick"/>
+
+              <!-- Candle Wicks -->
+              <line x1="119" y1="80" x2="119" y2="74" stroke="#444" stroke-width="2"/>
+              <line x1="160" y1="70" x2="160" y2="64" stroke="#444" stroke-width="2"/>
+              <line x1="201" y1="80" x2="201" y2="74" stroke="#444" stroke-width="2"/>
+
+              <!-- Candle Flames (Animated) -->
+              <g class="flame-group" id="flameGroup">
+                <!-- Flame 1 -->
+                <path class="flame flame-1" d="M119 72 C114 65, 114 55, 119 48 C124 55, 124 65, 119 72 Z" fill="url(#flameGrad)"/>
+                <!-- Flame 2 -->
+                <path class="flame flame-2" d="M160 62 C154 53, 154 41, 160 33 C166 53, 166 41, 160 62 Z" fill="url(#flameGrad)"/>
+                <!-- Flame 3 -->
+                <path class="flame flame-3" d="M201 72 C196 65, 196 55, 201 48 C206 55, 206 65, 201 72 Z" fill="url(#flameGrad)"/>
+              </g>
+
+              <!-- Smoke puffs (revealed when blown) -->
+              <g class="smoke-group hidden" id="smokeGroup">
+                <circle cx="119" cy="60" r="5" fill="#E2D9E2" opacity="0.7" class="smoke smoke-1"/>
+                <circle cx="160" cy="50" r="6" fill="#E2D9E2" opacity="0.7" class="smoke smoke-2"/>
+                <circle cx="201" cy="60" r="5" fill="#E2D9E2" opacity="0.7" class="smoke smoke-3"/>
+              </g>
+
+              <!-- Gradients for Flames -->
+              <defs>
+                <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                  <stop offset="0%" stop-color="#FF3838" />
+                  <stop offset="35%" stop-color="#FFA502" />
+                  <stop offset="80%" stop-color="#FFFA65" />
+                  <stop offset="100%" stop-color="#FFFFFF" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="wish-reveal-box hidden" id="wishRevealBox" aria-live="polite">
+            <span class="wish-icon">🌟</span>
+            <p class="wish-text">Your birthday wish has floated up to the starry heavens! May it come true in the most magical way! 💗✨</p>
+            <button id="relightCandlesBtn" class="pill-btn outline-pill">Relight Candles 🕯️</button>
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#letterScene" class="secondary-magic-btn" id="welcomeNextBtn">
+            <span>There's More! ✨</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 2: A LITTLE BIRTHDAY LETTER 💌    -->
+    <!-- ---------------------------------------- -->
+    <section id="letterScene" class="experience-section letter-section" aria-labelledby="letterHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="letterSectionBadge">A HEARTFELT NOTE 💌</span>
+        </div>
+        <h2 id="letterHeading" class="section-title">A Little Birthday Letter</h2>
+        <p class="section-intro" id="letterTeaser">
+          Psst… someone has written you a little letter. 💗
+        </p>
+
+        <!-- Digital Envelope Interactive Component -->
+        <div class="letter-interactive-area">
+          <div class="envelope-wrapper" id="envelopeWrapper">
+            <!-- Closed / Interactive Envelope -->
+            <div class="envelope" id="envelopeElement" role="button" tabindex="0" aria-label="Birthday envelope. Click to open your letter">
+              <!-- Envelope back flap / body -->
+              <div class="envelope-back"></div>
+              
+              <!-- Foldable Top Flap with Wax Seal -->
+              <div class="envelope-flap" id="envelopeFlap">
+                <div class="wax-seal" id="waxSeal" aria-hidden="true">
+                  <span class="seal-icon">🎀</span>
+                  <span class="seal-text">BESTIE</span>
+                </div>
+              </div>
+
+              <!-- Envelope Front Pocket -->
+              <div class="envelope-front"></div>
+
+              <!-- Click prompt text badge on envelope -->
+              <div class="envelope-prompt" id="envelopePromptBadge">
+                <span>💌 Click to open 💌</span>
+              </div>
+            </div>
+
+            <!-- The Letter (Slides up and opens gracefully) -->
+            <article class="letter-paper" id="letterPaper" aria-label="Birthday Letter Content" aria-hidden="true">
+              <div class="letter-stamp-area" aria-hidden="true">
+                <div class="pastel-stamp">
+                  <span>🌸 BESTIE</span>
+                  <span class="stamp-rate">10/10</span>
+                </div>
+                <div class="postmark">SPECIAL DELIVERY ✈️</div>
+              </div>
+
+              <div class="letter-body-content">
+                <h3 class="letter-dear" id="letterDear">Dear Bestie,</h3>
+                
+                <div id="letterParagraphsContainer" class="letter-paragraphs">
+                  <p>Happy Birthday to someone who makes life a little brighter just by being themselves! 💗</p>
+                  <p>I hope this new chapter brings you beautiful memories, wonderful surprises, lots of laughter, and countless reasons to smile.</p>
+                  <p>Never forget how special you are and how much you deserve happiness, love, and success.</p>
+                  <p>Keep being your lovely, wonderful self. The world needs more of your magic. ✨</p>
+                </div>
+
+                <div class="letter-signoff-block">
+                  <p class="letter-signoff" id="letterSignoff">With lots of hugs and bestie energy,</p>
+                  <p class="letter-signature" id="letterSignature">Your Bestie 💌</p>
+                </div>
+              </div>
+
+              <div class="letter-actions">
+                <button id="closeLetterBtn" class="pill-btn outline-pill" aria-label="Fold letter back into envelope">
+                  Fold Back 💌
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#teddyScene" class="secondary-magic-btn">
+            <span>Visit the Teddy Nook 🧸</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 3: THE CUTE TEDDY-BEAR CORNER 🧸📚 -->
+    <!-- ---------------------------------------- -->
+    <section id="teddyScene" class="experience-section teddy-section" aria-labelledby="teddyHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="teddySectionBadge">COZY NOOK 🧸📚</span>
+        </div>
+        <h2 id="teddyHeading" class="section-title">The Cute Teddy-Bear Corner</h2>
+        <p class="section-intro" id="teddySubtitle">
+          A cozy reading haven made with warm hugs and pastel aesthetic vibes
+        </p>
+
+        <!-- Teddy & Bookshelf Presentation Grid -->
+        <div class="teddy-nook-layout">
+          <!-- Left: Big Huggable Teddy Bear with interactive reactions -->
+          <div class="teddy-showcase-card">
+            <div class="teddy-interactive-wrapper" id="teddyInteractiveWrapper" role="button" tabindex="0" aria-label="Interactive Teddy Bear. Click to give a bear hug!">
+              <div class="teddy-bubble-speech" id="teddySpeechBubble" aria-live="polite">
+                <span>Sending you the biggest birthday hugs! 🧸💗</span>
+              </div>
+              
+              <div class="teddy-avatar-frame">
+                <img 
+                  src="assets/images/hero_teddy_bear.jpg" 
+                  alt="Pastel teddy bear with pink bow sitting with pastel books" 
+                  class="teddy-nook-avatar"
+                  loading="lazy"
+                  width="360"
+                  height="360"
+                />
+              </div>
+
+              <div class="hug-button-container">
+                <button id="giveTeddyHugBtn" class="primary-magic-btn small-btn" aria-label="Give Teddy a hug">
+                  <span>🧸 Give Bear Hug! 💗</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Cute Teddy Bear Captions -->
+            <div class="nook-badges-grid" id="teddyCaptionsContainer">
+              <div class="nook-badge">A bear-y special person! 🧸</div>
+              <div class="nook-badge">Sending you a shelf full of happiness! 📚</div>
+              <div class="nook-badge">You deserve all the hugs today! 💗</div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Pastel Bookshelf -->
+          <div class="bookshelf-card">
+            <div class="bookshelf-header">
+              <span class="shelf-icon" aria-hidden="true">📚</span>
+              <h3 class="shelf-title">Bestie's Special Bookshelf</h3>
+              <p class="shelf-note">Click any book to read its secret chapter! ✨</p>
+            </div>
+
+            <!-- Books Rack Display -->
+            <div class="pastel-books-rack" id="pastelBooksRack">
+              <!-- Dynamically populated from JSON, with default accessible fallback -->
+              <div class="book-spine-item" data-book-index="0" role="button" tabindex="0" aria-label="Book Dream Big. Click to open chapter.">
+                <div class="book-cover" style="--book-color: #BCE3FA; --spine-color: #8EC5FC;">
+                  <span class="book-tag">Vol. 1</span>
+                  <span class="book-spine-title">Dream Big</span>
+                  <span class="book-ribbon">⭐</span>
+                </div>
+              </div>
+              <div class="book-spine-item" data-book-index="1" role="button" tabindex="0" aria-label="Book Happy Tales. Click to open chapter.">
+                <div class="book-cover" style="--book-color: #FFD1DC; --spine-color: #FFAAA6;">
+                  <span class="book-tag">Vol. 2</span>
+                  <span class="book-spine-title">Happy Tales</span>
+                  <span class="book-ribbon">🌸</span>
+                </div>
+              </div>
+              <div class="book-spine-item" data-book-index="2" role="button" tabindex="0" aria-label="Book Love and Joy. Click to open chapter.">
+                <div class="book-cover" style="--book-color: #C7EAE5; --spine-color: #80CBC4;">
+                  <span class="book-tag">Vol. 3</span>
+                  <span class="book-spine-title">Love & Joy</span>
+                  <span class="book-ribbon">💗</span>
+                </div>
+              </div>
+              <div class="book-spine-item" data-book-index="3" role="button" tabindex="0" aria-label="Book Little Adventures. Click to open chapter.">
+                <div class="book-cover" style="--book-color: #E5D4F9; --spine-color: #CE93D8;">
+                  <span class="book-tag">Vol. 4</span>
+                  <span class="book-spine-title">Little Adventures</span>
+                  <span class="book-ribbon">🚀</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Book Quote Popout Display -->
+            <div class="active-book-quote-card" id="activeBookQuoteCard" aria-live="polite">
+              <div class="quote-header">
+                <span class="quote-book-title" id="quoteBookTitle">📖 Dream Big (Vol. 1)</span>
+                <span class="quote-flower">🌸</span>
+              </div>
+              <blockquote class="quote-body" id="quoteBookBody">
+                “Your dreams are valid, bold, and beautiful. Never stop reaching for the stars! ⭐”
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#reasonsScene" class="secondary-magic-btn">
+            <span>Why You're Amazing 🌷</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 4: REASONS YOU'RE AMAZING 🌷      -->
+    <!-- ---------------------------------------- -->
+    <section id="reasonsScene" class="experience-section reasons-section" aria-labelledby="reasonsHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="reasonsSectionBadge">WHY YOU ARE SO SPECIAL 🌷</span>
+        </div>
+        <h2 id="reasonsHeading" class="section-title">Reasons You're Amazing</h2>
+        <p class="section-intro" id="reasonsSubtitle">
+          Just a small reminder of all the light you bring into the world
+        </p>
+
+        <!-- Grid of appreciation cards -->
+        <div class="reasons-grid" id="reasonsGrid">
+          <!-- Populated from JSON or fallback -->
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#scrapbookScene" class="secondary-magic-btn">
+            <span>Explore the Scrapbook 📸</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 5: THE MEMORY SCRAPBOOK 📸        -->
+    <!-- ---------------------------------------- -->
+    <section id="scrapbookScene" class="experience-section scrapbook-section" aria-labelledby="scrapbookHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="scrapbookSectionBadge">TREASURED MEMORIES 📸</span>
+        </div>
+        <h2 id="scrapbookHeading" class="section-title">The Memory Scrapbook</h2>
+        <p class="section-intro" id="scrapbookSubtitle">
+          A collection of sweet moments, polaroids, and smile-filled adventures
+        </p>
+
+        <!-- Scrapbook Desk with Washi Tape and Polaroid Cards -->
+        <div class="scrapbook-desk" id="scrapbookDesk">
+          <!-- Scrapbook Polaroids Grid -->
+          <div class="polaroid-grid" id="polaroidGrid">
+            <!-- Dynamically populated with polaroid frames -->
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#giftScene" class="secondary-magic-btn">
+            <span>One More Surprise 🎁</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 6: BIRTHDAY WISHES & GIFT BOX 🎁   -->
+    <!-- ---------------------------------------- -->
+    <section id="giftScene" class="experience-section gift-section" aria-labelledby="giftHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="giftSectionBadge">A SPECIAL SURPRISE 🎁</span>
+        </div>
+        <h2 id="giftHeading" class="section-title">Birthday Wishes</h2>
+        <p class="section-intro" id="giftTeaser">
+          There's one more little surprise waiting for you… 🎁
+        </p>
+
+        <!-- Interactive 3D Gift Box Component -->
+        <div class="gift-box-stage">
+          <p class="gift-instruction-prompt" id="giftPromptText">
+            Tap the shiny gift box to unwrap your surprise! 🎀
+          </p>
+
+          <div class="gift-box-container" id="giftBoxContainer" role="button" tabindex="0" aria-label="Birthday Gift Box. Click to unwrap your special birthday wish">
+            <!-- Gift Box Ribbon Bow -->
+            <div class="gift-bow" id="giftBow" aria-hidden="true">
+              <div class="bow-loop bow-loop-left"></div>
+              <div class="bow-knot"></div>
+              <div class="bow-loop bow-loop-right"></div>
+              <div class="bow-tail bow-tail-left"></div>
+              <div class="bow-tail bow-tail-right"></div>
+            </div>
+
+            <!-- Gift Box Lid -->
+            <div class="gift-lid" id="giftLid">
+              <div class="lid-ribbon-vertical"></div>
+            </div>
+
+            <!-- Gift Box Body -->
+            <div class="gift-body" id="giftBody">
+              <div class="box-ribbon-vertical"></div>
+              <div class="box-ribbon-horizontal"></div>
+              <div class="box-sparkle-shine" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Revealed Wish Card (Pops out when unwrapped) -->
+          <div class="revealed-wish-card hidden" id="revealedWishCard" aria-live="polite">
+            <div class="wish-ribbon-seal" aria-hidden="true">🎁✨</div>
+            <h3 class="wish-card-title" id="wishCardHeading">A Wish Straight From The Heart 💗</h3>
+            <p class="wish-card-body" id="wishCardBody">
+              May this year bring you unexpected happiness, exciting adventures, dreams that come true, and memories that make you smile for years. Happy Birthday! 🎂💗
+            </p>
+            <div class="wish-card-footer">
+              <button id="replayGiftBtn" class="pill-btn outline-pill">
+                Open Gift Again 🎁
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#countdownScene" class="secondary-magic-btn">
+            <span>Special Day Celebration ⏳</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 7: BIRTHDAY COUNTDOWN ⏳          -->
+    <!-- ---------------------------------------- -->
+    <section id="countdownScene" class="experience-section countdown-section" aria-labelledby="countdownHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="countdownSectionBadge">SPECIAL DAY ⏳</span>
+        </div>
+        <h2 id="countdownHeading" class="section-title">Special Day Celebration</h2>
+
+        <!-- Today celebration banner if birthday is today -->
+        <div class="today-celebration-banner" id="todayCelebrationBanner">
+          <div class="banner-party-emojis" aria-hidden="true">🎉 🎂 🥳 🎈 🌸</div>
+          <h3 class="banner-headline" id="todayCelebrationHeadline">IT'S YOUR SPECIAL DAY! 🎂🎉</h3>
+          <p class="banner-subtext" id="todayCelebrationSubtext">
+            The universe is celebrating the wonderful soul that you are today! 🌟
+          </p>
+          <div class="banner-confetti-btn-wrap">
+            <button id="extraConfettiBtn" class="primary-magic-btn small-btn">
+              <span>Throw More Confetti! 🎊</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional Live Countdown Timer (shown when future date provided) -->
+        <div class="countdown-widget hidden" id="countdownWidget">
+          <div class="countdown-clock">
+            <div class="clock-unit">
+              <span class="unit-num" id="countdownDays">00</span>
+              <span class="unit-lbl">Days</span>
+            </div>
+            <span class="clock-colon">:</span>
+            <div class="clock-unit">
+              <span class="unit-num" id="countdownHours">00</span>
+              <span class="unit-lbl">Hours</span>
+            </div>
+            <span class="clock-colon">:</span>
+            <div class="clock-unit">
+              <span class="unit-num" id="countdownMins">00</span>
+              <span class="unit-lbl">Mins</span>
+            </div>
+            <span class="clock-colon">:</span>
+            <div class="clock-unit">
+              <span class="unit-num" id="countdownSecs">00</span>
+              <span class="unit-lbl">Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-next-cta">
+          <a href="#finalScene" class="secondary-magic-btn">
+            <span>Final Birthday Screen 🌙</span>
+            <span class="btn-arrow" aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------------------------------- -->
+    <!-- SCENE 8: THE FINAL BIRTHDAY SCREEN 🌙   -->
+    <!-- ---------------------------------------- -->
+    <section id="finalScene" class="experience-section final-section" aria-labelledby="finalHeading">
+      <div class="section-container">
+        <div class="section-tag" aria-hidden="true">
+          <span id="finalSectionBadge">WITH ALL MY LOVE 🌙</span>
+        </div>
+        <h2 id="finalHeading" class="section-title">A Little Corner Of Magic ✨</h2>
+
+        <div class="final-card-stage">
+          <div class="final-avatar-wrap">
+            <img 
+              src="assets/images/hero_teddy_bear.jpg" 
+              alt="Pastel teddy bear holding hearts and books" 
+              class="final-teddy-img"
+              loading="lazy"
+              width="240"
+              height="240"
+            />
+            <div class="final-sparkle-halo" aria-hidden="true"></div>
+          </div>
+
+          <div class="final-cake-emojis" aria-hidden="true">
+            <span>🎂</span>
+            <span>⭐</span>
+            <span>🌸</span>
+            <span>🧸</span>
+            <span>💖</span>
+          </div>
+
+          <p class="final-message-text" id="finalMessageText">
+            And that's your little corner of birthday magic. Keep smiling, keep dreaming, and keep being the amazing person you are. Happy Birthday once again! 💗🧸✨
+          </p>
+
+          <div class="final-action-buttons">
+            <button id="finalReadLetterBtn" class="primary-magic-btn">
+              <span id="btnReadLetterText">Read the Letter Again 💌</span>
+            </button>
+            <button id="finalRestartBtn" class="pill-btn outline-pill">
+              <span id="btnRestartText">Start the Surprise Over 🎀</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <p class="footer-heart-line">
+            Handcrafted with love, hugs & endless bestie memories 🌸
+          </p>
+          <p class="footer-subline">
+            Always in your corner • Happy Birthday Bestie 💗
+          </p>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: IMAGE LIGHTBOX FOR SCRAPBOOK        -->
+  <!-- ========================================== -->
+  <dialog id="photoLightboxModal" class="photo-lightbox-modal" aria-label="Photo Lightbox Dialog">
+    <div class="lightbox-content">
+      <button id="closeLightboxBtn" class="lightbox-close-btn" aria-label="Close photo preview">✕</button>
+      
+      <div class="lightbox-image-box">
+        <button id="prevLightboxBtn" class="lightbox-nav-btn prev-btn" aria-label="Previous image">‹</button>
+        <img id="lightboxImg" src="" alt="Enlarged scrapbook memory" class="lightbox-img">
+        <button id="nextLightboxBtn" class="lightbox-nav-btn next-btn" aria-label="Next image">›</button>
+      </div>
+
+      <div class="lightbox-info">
+        <div class="lightbox-header-line">
+          <span class="lightbox-sticker" id="lightboxSticker">🌸 BESTIES</span>
+          <span class="lightbox-date" id="lightboxDate">Golden Days</span>
+        </div>
+        <h4 class="lightbox-title" id="lightboxTitle">Memory Title</h4>
+        <p class="lightbox-caption" id="lightboxCaption">Memory Caption</p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ========================================== -->
+  <!-- MODAL: SECRET HEART EASTER EGG             -->
+  <!-- ========================================== -->
+  <dialog id="secretModal" class="secret-easter-modal" aria-label="Secret Bestie Message">
+    <div class="secret-modal-card">
+      <button id="closeSecretBtn" class="lightbox-close-btn" aria-label="Close secret note">✕</button>
+      <div class="secret-icon-burst" aria-hidden="true">💌 ✨ 🌸</div>
+      <h3>You Found The Secret Bestie Heart! 💖</h3>
+      <p>
+        Just a secret reminder that having you as a best friend is one of life's greatest treasures. No matter where life takes us, you will always have someone cheering for you the loudest! 🧸🌸✨
+      </p>
+      <div class="secret-seal">Forever & Always 🎀</div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
